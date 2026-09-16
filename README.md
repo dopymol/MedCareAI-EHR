@@ -18,7 +18,7 @@ Patient Directory
 ![Patient Directory](screenshots/patient_list.png)
 
 SOAP Summary
-![SOAP Summary](dscreenshots/soap_summary.png)
+![SOAP Summary](screenshots/soap_summary.png)
 
 # Problem Addressed
 
