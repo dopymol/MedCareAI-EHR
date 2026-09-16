@@ -12,7 +12,7 @@ Doctor Login
 ![MedCare AI Doctor Login](screenshots/login.png)
 
 Clinical Dashboard
-![MedCare AI Dashboard](screenshots/dashboard(2).png)
+![MedCare AI Dashboard](screenshots/dashboard.png)
 
 Patient Directory
 ![Patient Directory](screenshots/patient_list.png)
