@@ -1,90 +1,74 @@
-# MedCare AI — Mini EHR & Clinical Documentation Assistant
+## MedCare AI
 
-An interview-ready Django electronic health record prototype designed for a digital-health workflow.
-Doctors can securely register patients, maintain longitudinal consultation history,
-prescribe medicines, generate structured SOAP summaries, and see allergy-conflict warnings.
+# Mini Electronic Health Record & Clinical Documentation Assistant
 
-> All included names and records are fictional. This prototype is not a medical device and must not be used for real clinical decisions.
+MedCare AI is a Django-based mini Electronic Health Record (EHR) application that helps authenticated healthcare professionals register patients, maintain consultation history, manage prescriptions, identify possible medicine–allergy conflicts, and generate structured SOAP summaries.
 
-## Features
+The project demonstrates full-stack Django development and responsible AI-assisted clinical documentation. It is an educational prototype built with fictional data and is not intended for real medical use.
 
-- Django authentication and protected clinical pages
-- Dashboard with patient, consultation, follow-up, and allergy metrics
-- Patient registration, editing, search, and longitudinal record
-- Consultation notes, vital signs, diagnosis, treatment, and follow-up
-- Multiple prescriptions per consultation
-- Rule-based, AI-ready SOAP note generator (works without an API key)
-- Exact-match allergy warning when a medicine matches a recorded allergy
-- Clinician approval status and safety disclaimer
-- Responsive Bootstrap interface
-- Django Admin and automated tests
-- Fictional demonstration dataset
+Application Preview
 
-## Quick start on Windows
+Doctor Login
+![MedCare AI Doctor Login](screenshots/login.png)
 
-```powershell
-cd MedCareAI
-python -m venv venv
-venv\Scripts\activate
-pip install -r requirements.txt
-python manage.py migrate
-python manage.py seed_demo
-python manage.py runserver
-```
+Clinical Dashboard
+![MedCare AI Dashboard](screenshots/dashboard(2).png)
 
-Open `http://127.0.0.1:8000/`.
+Patient Directory
+![Patient Directory](screenshots/patient_list.png)
 
-Demo login:
+SOAP Summary
+![SOAP Summary](dscreenshots/soap_summary.png)
 
-- Username: `doctor`
-- Password: `Demo@123`
+# Problem Addressed
 
-## Quick start on macOS/Linux
+Clinical information may be distributed across paper records, separate consultation notes, and prescriptions. This can make it difficult to review a patient’s medical history, track follow-ups, and identify recorded allergies during a consultation.
 
-```bash
-cd MedCareAI
-python3 -m venv venv
-source venv/bin/activate
-pip install -r requirements.txt
-python manage.py migrate
-python manage.py seed_demo
-python manage.py runserver
-```
+MedCare AI brings these details into a structured patient record and provides an AI-ready documentation workflow while keeping the doctor responsible for every clinical decision.
 
-## Tests
+# Key Features
 
-```bash
-python manage.py check
-python manage.py test
-```
+Secure doctor login using Django Authentication
+Clinical dashboard with important record counts
+Patient registration and profile editing
+Search by patient name, patient ID, or phone number
+Longitudinal consultation history
+Symptoms, vital signs, diagnosis, notes, and treatment plan
+Multiple prescriptions for each consultation
+Structured SOAP summary generation
+Basic medicine–allergy conflict warning
+Doctor-review and approval status
+Responsive Bootstrap interface
+Django Admin for record and user management
+Automated backend tests
+Fictional demonstration dataset
+How the Application Works
+An authorised doctor signs in.
+The doctor searches for an existing patient or registers a new patient.
+A consultation is recorded with symptoms, vital signs, diagnosis, clinical notes, and a treatment plan.
+The backend converts the structured consultation fields into a SOAP-format summary.
+The doctor adds one or more prescriptions.
+The system compares prescribed medicine names with recorded allergies and displays a warning when a possible match is found.
+The consultation becomes part of the patient’s longitudinal record.
 
-## Demo flow
+# SOAP Documentation Assistant
 
-1. Sign in as the demo doctor.
-2. Review dashboard metrics.
-3. Open **Patients** and search for Meera.
-4. Open her longitudinal record and existing SOAP summary.
-5. Register a new fictional patient.
-6. Add a consultation and generate the summary.
-7. Add a prescription. Enter `Penicillin` for Meera to demonstrate the allergy warning.
+SOAP represents:
 
-## Responsible AI design
+# Subjective
+Chief complaint, symptoms, and duration
 
-The current summary module uses deterministic Python logic, so the demo requires no external API or patient-data transfer. It is intentionally described as **AI-ready**. In production, an approved language model could replace the module behind the same service interface. Generated text would remain a draft until clinician approval.
+# Objective
+Recorded temperature and blood pressure
 
-The system does not predict diagnoses or prescribe medicines. Production requirements would include explicit consent, encryption, audit trails, role-based permissions, retention policies, validated clinical terminology, and applicable Indian privacy and healthcare compliance review.
+# Assessment
+Clinician-entered diagnosis
 
-## Production roadmap
+# Plan
+Treatment plan and follow-up date
 
-- PostgreSQL and environment-based secrets
-- Django REST Framework with a React/mobile client
-- Granular doctor, nurse, receptionist, and patient permissions
-- Immutable audit logs and access history
-- Encrypted report upload and teleconsultation integration
-- ABDM/ABHA and HL7 FHIR-compatible data exchange
-- Medical terminology coding (SNOMED CT/ICD where licensed and appropriate)
-- Validated LLM summarization with redaction, citations, evaluation, and human approval
+The present version uses deterministic Python logic rather than an external AI API. This provides predictable output, works without an internet connection, and avoids transferring patient information to a third-party service.
 
-## Technology
+The summarisation logic is isolated in a service layer, allowing it to be replaced later with an approved and clinically evaluated language model.
 
-Python · Django · SQLite · Django ORM · Bootstrap 5 · HTML/CSS
+The assistant does not independently diagnose conditions or prescribe medicines. Generated documentation must be reviewed by a qualified healthcare professional.
