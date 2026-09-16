@@ -1,6 +1,6 @@
-## MedCare AI
+# MedCare AI
 
-# Mini Electronic Health Record & Clinical Documentation Assistant
+## Mini Electronic Health Record & Clinical Documentation Assistant
 
 MedCare AI is a Django-based mini Electronic Health Record (EHR) application that helps authenticated healthcare professionals register patients, maintain consultation history, manage prescriptions, identify possible medicine–allergy conflicts, and generate structured SOAP summaries.
 
